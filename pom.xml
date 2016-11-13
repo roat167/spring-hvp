@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>spring-hvp</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Spring Boot for spring volunteering project</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
