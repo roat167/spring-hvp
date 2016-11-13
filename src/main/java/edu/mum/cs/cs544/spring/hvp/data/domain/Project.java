@@ -30,6 +30,7 @@ public class Project implements java.io.Serializable {
 	private Date endDate;
 	private List<Task> taskList = new ArrayList<Task>();
 	private List<Beneficiary> beneficiaries = new ArrayList<Beneficiary>();	
+	private List<Skill> skillList = new ArrayList<Skill>();
 	
 	@Lob
 	@Column(name="image", length=10000000)
@@ -152,6 +153,18 @@ public class Project implements java.io.Serializable {
 
 	public void setLocation(String location) {
 		this.location = location;
+	}
+
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@JoinTable(name = "project_skills" , catalog="hvp",
+	joinColumns=@JoinColumn(name="project_id"), 
+	inverseJoinColumns=@JoinColumn(name="project_skills_id"))
+	public List<Skill> getSkillList() {
+		return skillList;
+	}
+
+	public void setSkillList(List<Skill> skillList) {
+		this.skillList = skillList;
 	}
 
 }
