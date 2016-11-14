@@ -10,13 +10,13 @@ import javax.persistence.Table;
 @Table(name = "beneficiary", catalog = "hvp")
 public class Beneficiary implements java.io.Serializable {
 	private static final long serialVersionUID = 2615506743164623624L;
-	private int id;
+	private Long id;
 	private String description;
 
 	public Beneficiary() {
 	}
 
-	public Beneficiary(int id, String description) {
+	public Beneficiary(Long id, String description) {
 		this.id = id;
 		this.description = description;
 	}
@@ -24,11 +24,11 @@ public class Beneficiary implements java.io.Serializable {
 	@Id
 	@GeneratedValue
 	@Column(name = "id", unique = true, nullable = false)
-	public int getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

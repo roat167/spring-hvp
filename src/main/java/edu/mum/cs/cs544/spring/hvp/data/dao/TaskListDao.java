@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import edu.mum.cs.cs544.spring.hvp.data.domain.TaskList;
 
-public interface ITaskListDao extends CrudRepository<TaskList, Integer>, ITaskDaoCustom {
+public interface TaskListDao extends CrudRepository<TaskList, Long>, TaskDaoCustom {
 
 }

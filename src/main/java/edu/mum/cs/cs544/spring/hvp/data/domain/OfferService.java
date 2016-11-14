@@ -16,14 +16,14 @@ import javax.persistence.Table;
 @Table(name = "offer_service", catalog = "hvp")
 public class OfferService implements java.io.Serializable {
 	private static final long serialVersionUID = 8009137559231451464L;
-	private int id;
+	private Long id;
 	private User userId;
 	private Task taskId;
 
 	public OfferService() {
 	}
 
-	public OfferService(int id, User userId, Task taskId) {
+	public OfferService(Long id, User userId, Task taskId) {
 		this.id = id;
 		this.userId = userId;
 		this.taskId = taskId;		
@@ -32,11 +32,11 @@ public class OfferService implements java.io.Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
-	public int getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

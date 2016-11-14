@@ -10,19 +10,19 @@ import javax.persistence.Table;
 @Table(name = "role", catalog = "hvp")
 public class Role implements java.io.Serializable {
 	private static final long serialVersionUID = 6863436362042362107L;
-	private int id;
+	private Long id;
 	private String name;
 	private String description;
 
 	public Role() {
 	}
 
-	public Role(int id, String name) {
+	public Role(Long id, String name) {
 		this.id = id;
 		this.name = name;
 	}
 
-	public Role(int id, String name, String description) {
+	public Role(Long id, String name, String description) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
@@ -31,11 +31,11 @@ public class Role implements java.io.Serializable {
 	@Id
 	@GeneratedValue
 	@Column(name = "id", unique = true, nullable = false)
-	public int getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

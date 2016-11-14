@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import edu.mum.cs.cs544.spring.hvp.data.dao.IBeneficiaryDao;
+import edu.mum.cs.cs544.spring.hvp.data.dao.BeneficiaryDao;
 import edu.mum.cs.cs544.spring.hvp.data.domain.Beneficiary;
 import edu.mum.cs.cs544.spring.hvp.data.domain.User;
 
@@ -17,9 +17,9 @@ import edu.mum.cs.cs544.spring.hvp.data.domain.User;
 @RequestMapping("/beneficiary")
 public class BeneficiaryController {
 	@Resource
-	private IBeneficiaryDao beneficiaryDao;
+	private BeneficiaryDao beneficiaryDao;
 
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public String list(Model model) {
 		model.addAttribute("beneficiary", new User());
 		model.addAttribute("beneficiaries", beneficiaryDao.findAll());
@@ -28,7 +28,7 @@ public class BeneficiaryController {
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String addOrUpdate(@ModelAttribute("beneficiary") Beneficiary b) {
-		if (b.getId() == 0) {
+		if (b.getId() == null) {
 			// new user, add it
 			this.beneficiaryDao.save(b);
 		} else {

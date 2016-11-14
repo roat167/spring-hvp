@@ -1,6 +1,5 @@
 package edu.mum.cs.cs544.spring.hvp.web;
 
-import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 

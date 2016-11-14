@@ -5,9 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Project Detail</title>
+<!-- <link rel="stylesheet" type="text/css" href="../datepicker.css" /> 
+<script type="text/javascript" src="../datepicker.js"></script>  -->
 </head>
 <body>
-	<form action="../projects/${project.id}" method="post">
+	<form action="/projects/add" method="post">
 	<h4>Project Details</h4>
 	<table>
 		<tr>
@@ -16,7 +18,10 @@
 		</tr>
 		<tr>
 			<td>Status:</td>
-			<td><input type="text" name="status" value="${project.status}" /> </td>
+			<%-- <td><input type="text" name="status" value="${project.status}" /> </td> --%>
+			<td><input type="radio" name="status" value="1" checked> Enable<br>
+  			<input type="radio" name="status" value="0"> Disable<br>
+  			</td>		
 		</tr>
 		<tr>
 			<td>Description:</td>
@@ -24,17 +29,22 @@
 		</tr>
 		<tr>
 			<td>Start Date:</td>
-			<td><input type="text" name="startDate" value="${project.startDate}" /> </td>
+			<td><input type="text" class="datepicker" name="startDate" value="${project.startDateDisplay}" /> </td>
 		</tr>
 		<tr>
 			<td>End Date:</td>
-			<td><input type="text" name="endDate" value="${project.endDate}" /> </td>
+			<td><input type="text" class="datepicker" name="endDate" value="${project.endDateDisplay}" /> </td>
 		</tr>
 	</table>
 	<input type="submit" value="update"/>
 	</form>
+	<c:if test="not empty project.id">
 	<form action="delete?projectId=${project.id}" method="post">
 		<button type="submit">Delete</button>
 	</form>
+	</c:if>
+	<div>
+		<span><a href="/projects"> Cancel </a></span>
+	</div>
 </body>
 </html>

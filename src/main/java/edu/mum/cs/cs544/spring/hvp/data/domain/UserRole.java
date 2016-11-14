@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Table(name = "user_role", catalog = "hvp")
 public class UserRole implements java.io.Serializable {
 	private static final long serialVersionUID = -2539610530931189814L;
-	private int userRoleId;
+	private Long userRoleId;
 	private Role role;
 	private User user;
 	
@@ -26,11 +26,11 @@ public class UserRole implements java.io.Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="user_role_id", nullable = false)
-	public int getUserRoleId() {
+	public Long getUserRoleId() {
 		return userRoleId;
 	}
 	
-	public void setUserRoleId(int userRoleId) {
+	public void setUserRoleId(Long userRoleId) {
 		this.userRoleId = userRoleId;
 	}
 	

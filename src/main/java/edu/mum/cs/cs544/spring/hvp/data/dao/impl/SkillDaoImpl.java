@@ -1,7 +1,7 @@
 package edu.mum.cs.cs544.spring.hvp.data.dao.impl;
 
-import edu.mum.cs.cs544.spring.hvp.data.dao.ISkillDaoCustom;
+import edu.mum.cs.cs544.spring.hvp.data.dao.SkillDaoCustom;
 
-public class SkillDaoImpl implements ISkillDaoCustom {
+public class SkillDaoImpl implements SkillDaoCustom {
 
 }

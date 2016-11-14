@@ -14,18 +14,18 @@ import javax.persistence.Table;
 @Table(name = "task_list", catalog = "hvp")
 public class TaskList implements Serializable {
 	private static final long serialVersionUID = 8630596894789395735L;
-	private int taskListId;
+	private Long taskListId;
 	private Project project;
 	private Task task;	
 
 	@Id
 	@GeneratedValue
 	@Column(name="task_list_id", nullable = false)
-	public int getTaskListId() {
+	public Long getTaskListId() {
 		return taskListId;
 	}
 
-	public void setTaskListId(int taskListId) {
+	public void setTaskListId(Long taskListId) {
 		this.taskListId = taskListId;
 	}
 

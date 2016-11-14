@@ -1,7 +1,7 @@
 package edu.mum.cs.cs544.spring.hvp.data.dao.impl;
 
-import edu.mum.cs.cs544.spring.hvp.data.dao.IBeneficiaryDaoCustom;
+import edu.mum.cs.cs544.spring.hvp.data.dao.BeneficiaryDaoCustom;
 
-public class BeneficiaryDaoImpl implements IBeneficiaryDaoCustom {
+public class BeneficiaryDaoImpl implements BeneficiaryDaoCustom {
 
 }

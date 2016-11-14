@@ -10,14 +10,14 @@ import javax.persistence.Table;
 @Table(name = "skill", catalog = "hvp")
 public class Skill implements java.io.Serializable {
 	private static final long serialVersionUID = 8876954785318344124L;
-	private int id;
+	private Long id;
 	private String description;
 	private int years;
 
 	public Skill() {
 	}
 
-	public Skill(int id, String description, int years) {
+	public Skill(Long id, String description, int years) {
 		this.id = id;
 		this.description = description;
 		this.years = years;
@@ -26,11 +26,11 @@ public class Skill implements java.io.Serializable {
 	@Id
 	@GeneratedValue
 	@Column(name = "id", unique = true, nullable = false)
-	public int getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

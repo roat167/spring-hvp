@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import edu.mum.cs.cs544.spring.hvp.data.dao.IRoleDao;
+import edu.mum.cs.cs544.spring.hvp.data.dao.RoleDao;
 import edu.mum.cs.cs544.spring.hvp.data.domain.Role;
 import edu.mum.cs.cs544.spring.hvp.data.domain.User;
 
@@ -17,9 +17,9 @@ import edu.mum.cs.cs544.spring.hvp.data.domain.User;
 @RequestMapping("/role")
 public class RoleController {
 	@Resource
-	private IRoleDao roleDao;
+	private RoleDao roleDao;
 
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public String list(Model model) {
 		model.addAttribute("role", new User());
 		model.addAttribute("roles", roleDao.findAll());
@@ -28,7 +28,7 @@ public class RoleController {
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String addOrUpdate(@ModelAttribute("role") Role role) {
-		if (role.getId() == 0) {
+		if (role.getId() == null) {
 			// new user, add it
 			this.roleDao.save(role);
 		} else {

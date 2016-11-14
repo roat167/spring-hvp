@@ -7,6 +7,7 @@
 <title>Beneficiaries</title>
 </head>
 <body>
+	<a href="beneficiary/add"> Add a Beneficiary</a>
 	<h2>List of beneficiaries</h2>
 	<table>
 	<%-- 
@@ -17,8 +18,7 @@
 	</tr>
 	</c:forEach>
 	--%>
-	</table>
-	
-	<a href="addProject.html"> Add a Beneficiary</a>
+	</table>	
+
 </body>
 </html>

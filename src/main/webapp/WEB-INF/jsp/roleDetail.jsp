@@ -7,33 +7,21 @@
 <title>Role Detail</title>
 </head>
 <body>
-	<form action="../role/${project.id}" method="post">
+	<form action="../role/${role.id}" method="post">
 	<h4>Role Details</h4>
 	<table>
 		<tr>
 			<td>Name:</td>
-			<td><input type="text" name="name" value="${project.name}" /> </td>
-		</tr>
-		<tr>
-			<td>Status:</td>
-			<td><input type="text" name="status" value="${project.status}" /> </td>
-		</tr>
+			<td><input type="text" name="name" value="${role.name}" /> </td>
+		</tr>		
 		<tr>
 			<td>Description:</td>
-			<td><input type="text" name="description" value="${project.description}" /> </td>
-		</tr>
-		<tr>
-			<td>Start Date:</td>
-			<td><input type="text" name="startDate" value="${project.startDate}" /> </td>
-		</tr>
-		<tr>
-			<td>End Date:</td>
-			<td><input type="text" name="endDate" value="${project.endDate}" /> </td>
-		</tr>
+			<td><input type="text" name="description" value="${role.description}" /> </td>
+		</tr>		
 	</table>
 	<input type="submit" value="update"/>
 	</form>
-	<form action="delete?projectId=${project.id}" method="post">
+	<form action="delete?roleId=${role.id}" method="post">
 		<button type="submit">Delete</button>
 	</form>
 </body>

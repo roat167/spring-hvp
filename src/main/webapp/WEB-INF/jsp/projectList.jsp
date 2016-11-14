@@ -7,22 +7,30 @@
 <title>Projects</title>
 </head>
 <body>
+	<a href="projects/add"> Add a Project</a>
 	<h2>List of projects</h2>
 	<table>
-	<%-- 
+	<c:if test="not empty projects">
+	<tr>
+		<td>Name </td>
+		<td> Status </td>
+		<td> Description </td>		
+		<td> Start Date </td>
+		<td> End Date</td>		
+	</tr>
+	</c:if>
 	<c:forEach var="project" items="${projects}">
 	<tr>
 		<td>${project.name}</td>
 		<td>${project.status}</td>
 		<td>${project.description}</td>		
-		<td>${project.startDate}</td>
-		<td>${project.endDate}</td>
-		<td><a href="projects/${project.id}">edit</a></td>
+		<td>${project.startDateDisplay}</td>
+		<td>${project.endDateDisplay}</td>		
+		<td><a href="projects/u/${project.id}"> EDIT</a></td>
 	</tr>
 	</c:forEach>
-	--%>
-	</table>
 	
-	<a href="addProject.html"> Add a Project</a>
+	</table>	
+	
 </body>
 </html>

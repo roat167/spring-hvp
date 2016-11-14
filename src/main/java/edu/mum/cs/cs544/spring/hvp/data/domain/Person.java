@@ -20,7 +20,7 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "person", catalog = "hvp", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class Person implements java.io.Serializable {
 	private static final long serialVersionUID = -5177947558833201030L;
-	private int id;
+	private Long id;
 	private String firstName;
 	private String lastName;
 	private Date dob;
@@ -35,7 +35,7 @@ public class Person implements java.io.Serializable {
 	public Person() {
 	}
 
-	public Person(int id, String firstName, String lastName, Date dob, byte status) {
+	public Person(Long id, String firstName, String lastName, Date dob, byte status) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -43,7 +43,7 @@ public class Person implements java.io.Serializable {
 		this.status = status;
 	}
 
-	public Person(int id, String firstName, String lastName, Date dob, String email, String zip, String state,
+	public Person(Long id, String firstName, String lastName, Date dob, String email, String zip, String state,
 			String city, String coutry, byte status, Set<User> users) {
 		this.id = id;
 		this.firstName = firstName;
@@ -61,11 +61,11 @@ public class Person implements java.io.Serializable {
 	@Id 
 	@GeneratedValue
 	@Column(name = "id", unique = true, nullable = false)
-	public int getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

@@ -9,25 +9,26 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import edu.mum.cs.cs544.spring.hvp.data.dao.IUserDao;
+import edu.mum.cs.cs544.spring.hvp.data.dao.UserDao;
 import edu.mum.cs.cs544.spring.hvp.data.domain.User;
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
 	@Resource
-	private IUserDao userDao;
+	private UserDao userDao;
 
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public String list(Model model) {
 		model.addAttribute("user", new User());
 		model.addAttribute("users", userDao.findAll());
+		System.out.println(userDao.findAll());
 		return "userList";
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String addOrUpdate(@ModelAttribute("user") User u) {
-		if (u.getId() == 0) {
+		if (u.getId() == null) {
 			// new user, add it
 			this.userDao.save(u);
 		} else {

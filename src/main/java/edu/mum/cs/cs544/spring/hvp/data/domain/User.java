@@ -19,7 +19,7 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "user", catalog = "hvp", uniqueConstraints = @UniqueConstraint(columnNames = "username"))
 public class User implements java.io.Serializable {
 	private static final long serialVersionUID = -7877578994828490437L;
-	private int id;
+	private Long id;
 	private Person person;
 	private String username;
 	private String password;
@@ -28,7 +28,7 @@ public class User implements java.io.Serializable {
 	public User() {
 	}
 
-	public User(int id, Person person, String username, String password) {
+	public User(Long id, Person person, String username, String password) {
 		this.id = id;
 		this.person = person;
 		this.username = username;
@@ -38,11 +38,11 @@ public class User implements java.io.Serializable {
 	@Id 
 	@GeneratedValue
 	@Column(name = "id", unique = true, nullable = false)
-	public int getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

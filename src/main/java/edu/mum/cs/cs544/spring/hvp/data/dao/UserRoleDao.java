@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import edu.mum.cs.cs544.spring.hvp.data.domain.UserRole;
 
-public interface IUserRoleDao extends CrudRepository<UserRole, Integer>, IUserDaoCustom {
+public interface UserRoleDao extends CrudRepository<UserRole, Long>, UserDaoCustom {
 
 }

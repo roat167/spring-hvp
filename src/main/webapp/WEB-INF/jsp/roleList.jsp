@@ -7,22 +7,19 @@
 <title>Projects</title>
 </head>
 <body>
-	<h2>List of projects</h2>
+	<h2>List of roles</h2>
 	<table>
 	<%-- 
-	<c:forEach var="project" items="${projects}">
+	<c:forEach var="role" items="${roles}">
 	<tr>
-		<td>${project.name}</td>
-		<td>${project.status}</td>
-		<td>${project.description}</td>		
-		<td>${project.startDate}</td>
-		<td>${project.endDate}</td>
-		<td><a href="projects/${project.id}">edit</a></td>
+		<td>${role.name}</td>
+		<td>${role.status}</td>
+		<td><a href="role/${role.id}">edit</a></td>
 	</tr>
 	</c:forEach>
 	--%>
 	</table>
 	
-	<a href="addProject.html"> Add a Project</a>
+	<a href="role/add"> Add a Project</a>
 </body>
 </html>

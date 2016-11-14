@@ -4,25 +4,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Projects</title>
+<title>User Page</title>
 </head>
 <body>
-	<h2>List of projects</h2>
+	<h2>List of users</h2>
 	<table>
 	<%-- 
-	<c:forEach var="project" items="${projects}">
+	<c:forEach var="user" items="${users}">
 	<tr>
-		<td>${project.name}</td>
-		<td>${project.status}</td>
-		<td>${project.description}</td>		
-		<td>${project.startDate}</td>
-		<td>${project.endDate}</td>
-		<td><a href="projects/${project.id}">edit</a></td>
+		<td>${user.name}</td>
+		<td>${user.status}</td>
+		<td>${user.description}</td>		
+		<td>${user.startDate}</td>
+		<td>${user.endDate}</td>
+		<td><a href="user/${user.id}">edit</a></td>
 	</tr>
 	</c:forEach>
 	--%>
 	</table>
 	
-	<a href="addProject.html"> Add a Project</a>
+	<a href="user/add"> Add a user</a>
 </body>
 </html>

@@ -18,29 +18,34 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.data.annotation.Transient;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import edu.mum.cs.cs544.spring.hvp.util.CustomDateFormatter;
+
 @Entity
 @Table(name = "project", catalog = "hvp")
 public class Project implements java.io.Serializable {
 	private static final long serialVersionUID = 5699833322635029323L;
-	private int id;
+	private Long id;
 	private String name;
 	private short status;
 	private String description;
 	private Date startDate;
 	private Date endDate;
 	private List<Task> taskList = new ArrayList<Task>();
-	private List<Beneficiary> beneficiaries = new ArrayList<Beneficiary>();	
+	private List<Beneficiary> beneficiaries = new ArrayList<Beneficiary>();
 	private List<Skill> skillList = new ArrayList<Skill>();
-	
+
 	@Lob
-	@Column(name="image", length=10000000)
+	@Column(name = "image", length = 10000000)
 	private byte[] image;
 	private String location;
-	
+
 	public Project() {
 	}
 
-	public Project(int id, String name, short status, Date startDate, Date endDate) {
+	public Project(Long id, String name, short status, Date startDate, Date endDate) {
 		this.id = id;
 		this.name = name;
 		this.status = status;
@@ -48,7 +53,7 @@ public class Project implements java.io.Serializable {
 		this.endDate = endDate;
 	}
 
-	public Project(int id, String name, short status, String description, Date startDate, Date endDate) {
+	public Project(Long id, String name, short status, String description, Date startDate, Date endDate) {
 		this.id = id;
 		this.name = name;
 		this.status = status;
@@ -60,11 +65,11 @@ public class Project implements java.io.Serializable {
 	@Id
 	@GeneratedValue
 	@Column(name = "id", unique = true, nullable = false)
-	public int getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -97,6 +102,7 @@ public class Project implements java.io.Serializable {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "startDate", nullable = false, length = 19)
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
 	public Date getStartDate() {
 		return this.startDate;
 	}
@@ -107,6 +113,7 @@ public class Project implements java.io.Serializable {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "endDate", nullable = false, length = 19)
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
 	public Date getEndDate() {
 		return this.endDate;
 	}
@@ -114,11 +121,10 @@ public class Project implements java.io.Serializable {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
-	//mappedBy="project", 
-	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-	@JoinTable(name = "task_list" , catalog="hvp",
-	joinColumns=@JoinColumn(name="project_id"),
-	inverseJoinColumns=@JoinColumn(name="task_list_id"))	
+
+	// mappedBy="project",
+	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	@JoinTable(name = "task_list", catalog = "hvp", joinColumns = @JoinColumn(name = "project_id"), inverseJoinColumns = @JoinColumn(name = "task_list_id"))
 	public List<Task> getTaskList() {
 		return taskList;
 	}
@@ -127,10 +133,8 @@ public class Project implements java.io.Serializable {
 		this.taskList = taskList;
 	}
 
-	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-	@JoinTable(name = "project_beneficiary" , catalog="hvp",
-	joinColumns=@JoinColumn(name="project_id"), 
-	inverseJoinColumns=@JoinColumn(name="project_beneficiary_id"))
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	@JoinTable(name = "project_beneficiary", catalog = "hvp", joinColumns = @JoinColumn(name = "project_id"), inverseJoinColumns = @JoinColumn(name = "project_beneficiary_id"))
 	public List<Beneficiary> getBeneficiaries() {
 		return beneficiaries;
 	}
@@ -155,10 +159,8 @@ public class Project implements java.io.Serializable {
 		this.location = location;
 	}
 
-	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-	@JoinTable(name = "project_skills" , catalog="hvp",
-	joinColumns=@JoinColumn(name="project_id"), 
-	inverseJoinColumns=@JoinColumn(name="project_skills_id"))
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	@JoinTable(name = "project_skills", catalog = "hvp", joinColumns = @JoinColumn(name = "project_id"), inverseJoinColumns = @JoinColumn(name = "project_skills_id"))
 	public List<Skill> getSkillList() {
 		return skillList;
 	}
@@ -167,4 +169,27 @@ public class Project implements java.io.Serializable {
 		this.skillList = skillList;
 	}
 
+	//Transient fields
+	private String endDateDisplay;
+	private String startDateDisplay;
+	
+	@Transient
+	public String getEndDateDisplay() {
+		this.setEndDateDisplay(CustomDateFormatter.displayDateFormat(this.getEndDate()));
+		return this.endDateDisplay;
+	}
+
+	@Transient
+	public String getStartDateDisplay() {
+		this.setStartDateDisplay(CustomDateFormatter.displayDateFormat(this.getStartDate()));
+		return this.startDateDisplay;
+	}
+	
+	public void setEndDateDisplay(String endDateDisplay) {
+		this.endDateDisplay = endDateDisplay;
+	}
+
+	public void setStartDateDisplay(String startDateDisplay) {
+		this.startDateDisplay = startDateDisplay;
+	}
 }

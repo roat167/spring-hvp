@@ -6,7 +6,7 @@
 	<groupId>edu.mum.cs.cs544</groupId>
 	<artifactId>spring.hvp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>springhvp</name>
 	<description>Spring Boot for spring volunteering project</description>
@@ -43,6 +43,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+        </dependency>
 		<dependency>
 		   <groupId>org.apache.tomcat.embed</groupId>
 		   <artifactId>tomcat-embed-jasper</artifactId>
