@@ -1,7 +1,7 @@
 package edu.mum.cs.cs544.spring.hvp.data.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,7 +23,7 @@ public class User implements java.io.Serializable {
 	private Person person;
 	private String username;
 	private String password;
-	private List<Role> roles = new ArrayList<Role>();
+	private Set<Role> roles = new HashSet<Role>();
 
 	public User() {
 	}
@@ -78,11 +78,11 @@ public class User implements java.io.Serializable {
 	@JoinTable(name="user_role", catalog="hvp",
 	joinColumns=@JoinColumn(name="user_id"),
 	inverseJoinColumns=@JoinColumn(name="role_id"))
-	public List<Role> getRoles() {
+	public Set<Role> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(List<Role> roles) {
+	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
 
