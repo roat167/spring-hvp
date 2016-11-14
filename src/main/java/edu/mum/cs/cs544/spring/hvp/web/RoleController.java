@@ -40,14 +40,14 @@ public class RoleController {
 	}
 
 	@RequestMapping("/remove/{id}")
-	public String remove(@PathVariable("id") int id) {
+	public String remove(@PathVariable("id") Long id) {
 
 		this.roleDao.delete(id);
 		return "redirect:/roleList";
 	}
 
 	@RequestMapping("/edit/{id}")
-	public String edit(@PathVariable("id") int id, Model model) {
+	public String edit(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("role", this.roleDao.findOne(id));
 		model.addAttribute("roles", this.roleDao.findAll());
 		return "roleDetail";

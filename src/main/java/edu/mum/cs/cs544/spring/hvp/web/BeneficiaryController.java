@@ -40,14 +40,14 @@ public class BeneficiaryController {
 	}
 
 	@RequestMapping("/remove/{id}")
-	public String remove(@PathVariable("id") int id) {
+	public String remove(@PathVariable("id") Long id) {
 
 		this.beneficiaryDao.delete(id);
 		return "redirect:/beneficiaryList";
 	}
 
 	@RequestMapping("/edit/{id}")
-	public String edit(@PathVariable("id") int id, Model model) {
+	public String edit(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("beneficiary", this.beneficiaryDao.findOne(id));
 		model.addAttribute("beneficiaries", this.beneficiaryDao.findAll());
 		return "beneficiaryDetail";

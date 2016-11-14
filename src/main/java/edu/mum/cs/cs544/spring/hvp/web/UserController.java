@@ -40,14 +40,14 @@ public class UserController {
 	}
 
 	@RequestMapping("/remove/{id}")
-	public String remove(@PathVariable("id") int id) {
+	public String remove(@PathVariable("id") Long id) {
 
 		this.userDao.delete(id);
 		return "redirect:/userList";
 	}
 
 	@RequestMapping("/edit/{id}")
-	public String edit(@PathVariable("id") int id, Model model) {
+	public String edit(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("user", this.userDao.findOne(id));
 		model.addAttribute("users", this.userDao.findAll());
 		return "userDetail";
