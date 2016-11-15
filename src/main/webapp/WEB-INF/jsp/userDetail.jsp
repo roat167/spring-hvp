@@ -7,6 +7,7 @@
 <title>Project Detail</title>
 </head>
 <body>
+	<a href="/home"> HOME</a>
 	<form action="../user/${user.id}" method="post">
 	<h4>Project Details</h4>
 	<table>

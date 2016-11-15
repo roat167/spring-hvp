@@ -28,7 +28,7 @@ public class Person implements java.io.Serializable {
 	private String zip;
 	private String state;
 	private String city;
-	private String coutry;
+	private String country;
 	private byte status;
 	private Set<User> users = new HashSet<User>(0);
 
@@ -44,7 +44,7 @@ public class Person implements java.io.Serializable {
 	}
 
 	public Person(Long id, String firstName, String lastName, Date dob, String email, String zip, String state,
-			String city, String coutry, byte status, Set<User> users) {
+			String city, String country, byte status, Set<User> users) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -53,7 +53,7 @@ public class Person implements java.io.Serializable {
 		this.zip = zip;
 		this.state = state;
 		this.city = city;
-		this.coutry = coutry;
+		this.country = country;
 		this.status = status;
 		this.users = users;
 	}
@@ -133,13 +133,13 @@ public class Person implements java.io.Serializable {
 		this.city = city;
 	}
 
-	@Column(name = "coutry", length = 16)
-	public String getCoutry() {
-		return this.coutry;
+	@Column(name = "country", length = 16)
+	public String getCountry() {
+		return this.country;
 	}
 
-	public void setCoutry(String coutry) {
-		this.coutry = coutry;
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 	@Column(name = "status", nullable = false)

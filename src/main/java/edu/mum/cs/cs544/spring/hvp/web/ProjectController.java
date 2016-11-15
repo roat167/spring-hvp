@@ -20,7 +20,7 @@ import edu.mum.cs.cs544.spring.hvp.exception.NoSuchResourceException;
 public class ProjectController {
 	@Resource
 	private ProjectDao projectDao;
-
+	
 	@RequestMapping(value = "/projects", method = RequestMethod.GET)
 	public String getAll(Model model) {
 		model.addAttribute("projects", projectDao.findAll());
@@ -32,6 +32,9 @@ public class ProjectController {
 	@RequestMapping(value = "/projects/add", method = RequestMethod.POST)
 	public String addOrUpdate(@ModelAttribute("project") Project p) {
 		try {
+			if (p.getTask() != null && p.getTask().getName() != null) {
+				p.getTaskList().add(p.getTask());
+			}
 			if (p.getId() == null) {
 				// new add it
 				this.projectDao.save(p);
@@ -60,11 +63,11 @@ public class ProjectController {
 		return "projectDetail";
 	}	
 
-	// @RequestMapping(value="/{id}", method=RequestMethod.POST)
-	// public String update(Project project, @PathVariable int id) {
-	// projectDao.update(id, project); // car.id already set by binding
-	// return "redirect:/projects";
-	// }
+	@RequestMapping(value = "/projects/remove", method = RequestMethod.POST)
+	public String remove(Project project, Long id) {
+		projectDao.delete(id);
+		return "redirect:/projects";
+	}
 
 	@ExceptionHandler(value = NoSuchResourceException.class)
 	public ModelAndView handle(Exception e) {
@@ -72,6 +75,14 @@ public class ProjectController {
 		mv.getModel().put("e", e);
 		mv.setViewName("noSuchResource");
 		return mv;
+	}
+	
+	@RequestMapping(value = "/projects/addtask", method = RequestMethod.POST)
+	public String addTask(Project project) {		
+		if (project != null && project.getTask() != null) {
+			
+		}
+		return "";
 	}
 
 }

@@ -36,6 +36,13 @@ public class Project implements java.io.Serializable {
 	private List<Task> taskList = new ArrayList<Task>();
 	private List<Beneficiary> beneficiaries = new ArrayList<Beneficiary>();
 	private List<Skill> skillList = new ArrayList<Skill>();
+	// these transient is for adding new task...
+	@Transient
+	private Task task = new Task();
+	@Transient
+	private Beneficiary beneficiary = new Beneficiary();
+	@Transient
+	private Skill skill = new Skill();
 
 	@Lob
 	@Column(name = "image", length = 10000000)
@@ -101,7 +108,7 @@ public class Project implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "startDate", nullable = false, length = 19)
+	@Column(name = "startdate", nullable = false, length = 19)
 	@DateTimeFormat(pattern = "MM/dd/yyyy")
 	public Date getStartDate() {
 		return this.startDate;
@@ -112,7 +119,7 @@ public class Project implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "endDate", nullable = false, length = 19)
+	@Column(name = "enddate", nullable = false, length = 19)
 	@DateTimeFormat(pattern = "MM/dd/yyyy")
 	public Date getEndDate() {
 		return this.endDate;
@@ -167,6 +174,30 @@ public class Project implements java.io.Serializable {
 
 	public void setSkillList(List<Skill> skillList) {
 		this.skillList = skillList;
+	}
+
+	public Task getTask() {
+		return task;
+	}
+
+	public void setTask(Task task) {
+		this.task = task;
+	}
+
+	public Beneficiary getBeneficiary() {
+		return beneficiary;
+	}
+
+	public void setBeneficiary(Beneficiary beneficiary) {
+		this.beneficiary = beneficiary;
+	}
+
+	public Skill getSkill() {
+		return skill;
+	}
+
+	public void setSkill(Skill skill) {
+		this.skill = skill;
 	}
 
 	//Transient fields

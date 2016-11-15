@@ -18,4 +18,8 @@ public class SpringHvpApplication extends SpringBootServletInitializer {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringHvpApplication.class, args);
 	}
+	
+	public static void addSampleData() {
+
+	}
 }

@@ -6,7 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>User Page</title>
 </head>
-<body>
+<body> 
+	<a href="/home"> HOME</a>
+	<a href="user/add"> Add a user</a>
 	<h2>List of users</h2>
 	<table>
 	<%-- 
@@ -21,8 +23,6 @@
 	</tr>
 	</c:forEach>
 	--%>
-	</table>
-	
-	<a href="user/add"> Add a user</a>
+	</table>	
 </body>
 </html>

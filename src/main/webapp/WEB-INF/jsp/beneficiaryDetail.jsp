@@ -7,18 +7,25 @@
 <title>Beneficiary Page</title>
 </head>
 <body>
-	<form action="../beneficiary/${beneficiary.id}" method="post">
+	<a href="/home"> HOME</a>
+	<span><a href="/beneficiaries"> Cancel </a></span>
+	<form action="/beneficiaries/add" method="post">
 	<h4>Beneficiary Details</h4>
 	<table>		
 		<tr>
+			<td>Name:</td>
+			<td><input type="text" name="name" value="${beneficiary.name}" /> </td>
 			<td>Description:</td>
 			<td><input type="text" name="description" value="${beneficiary.description}" /> </td>
 		</tr>		
 	</table>
-	<input type="submit" value="update"/>
+	<input type="submit" value="Save"/>
 	</form>
-	<form action="delete?beneficiaryId=${beneficiary.id}" method="post">
+	<c:if test="${not empty beneficiary.id}">
+	<form action="/beneficiaries/remove?id=${beneficiary.id}" method="post">
 		<button type="submit">Delete</button>
 	</form>
+	</c:if>
+	<span></span>	
 </body>
 </html>

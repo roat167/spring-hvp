@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.mum.cs.cs544.spring.hvp.data.dao.BeneficiaryDao;
 import edu.mum.cs.cs544.spring.hvp.data.domain.Beneficiary;
-import edu.mum.cs.cs544.spring.hvp.data.domain.User;
+import edu.mum.cs.cs544.spring.hvp.data.domain.Project;
 
 @Controller
-@RequestMapping("/beneficiary")
+@RequestMapping("/beneficiaries")
 public class BeneficiaryController {
 	@Resource
 	private BeneficiaryDao beneficiaryDao;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String list(Model model) {
-		model.addAttribute("beneficiary", new User());
+		model.addAttribute("beneficiary", new Beneficiary());
 		model.addAttribute("beneficiaries", beneficiaryDao.findAll());
 		return "beneficiaryList";
 	}
@@ -35,18 +35,22 @@ public class BeneficiaryController {
 			// existing, call update
 			this.beneficiaryDao.save(b);
 		}
-		return "redirect:/beneficiaryDetail";
-
+		return "redirect:/beneficiaries/u/" + b.getId();
+	}
+	
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	public String detailPage(@ModelAttribute("beneficiary") Beneficiary b, Model model) {
+		model.addAttribute("beneficiary", b);
+		return "beneficiaryDetail";
 	}
 
-	@RequestMapping("/remove/{id}")
-	public String remove(@PathVariable("id") Long id) {
-
+	@RequestMapping("/remove")
+	public String remove(Long id) {
 		this.beneficiaryDao.delete(id);
-		return "redirect:/beneficiaryList";
+		return "redirect:/beneficiaries";
 	}
 
-	@RequestMapping("/edit/{id}")
+	@RequestMapping(value="/u/{id}", method = RequestMethod.GET)
 	public String edit(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("beneficiary", this.beneficiaryDao.findOne(id));
 		model.addAttribute("beneficiaries", this.beneficiaryDao.findAll());

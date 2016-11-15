@@ -6,18 +6,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Beneficiaries</title>
 </head>
-<body>
-	<a href="beneficiary/add"> Add a Beneficiary</a>
+<body>	 
+	<a href="/home"> HOME</a>
+	<a href="beneficiaries/add"> Add a Beneficiary</a>
 	<h2>List of beneficiaries</h2>
-	<table>
-	<%-- 
+	<table>	
+	 
 	<c:forEach var="beneficiary" items="${beneficiaries}">
 	<tr>
+		<td>${beneficiary.name}</td>
 		<td>${beneficiary.description}</td>		
-		<td><a href="beneficiary/${beneficiary.id}">edit</a></td>
+		<td><a href="/beneficiaries/u/${beneficiary.id}">edit</a></td>
 	</tr>
 	</c:forEach>
-	--%>
+	
 	</table>	
 
 </body>

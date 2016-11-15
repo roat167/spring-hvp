@@ -11,6 +11,7 @@ import javax.persistence.Table;
 public class Beneficiary implements java.io.Serializable {
 	private static final long serialVersionUID = 2615506743164623624L;
 	private Long id;
+	private String name;
 	private String description;
 
 	public Beneficiary() {
@@ -30,6 +31,15 @@ public class Beneficiary implements java.io.Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	@Column(name = "name", nullable = false, length = 26)
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Column(name = "description", nullable = false, length = 56)

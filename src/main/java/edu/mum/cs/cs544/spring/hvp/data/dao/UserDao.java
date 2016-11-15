@@ -6,4 +6,5 @@ import edu.mum.cs.cs544.spring.hvp.data.domain.User;
 
 public interface UserDao extends CrudRepository<User, Long>, UserDaoCustom {
 
+	public User getUserByUsernameAndPassword(String username, String password);
 }

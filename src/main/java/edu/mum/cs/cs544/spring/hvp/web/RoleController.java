@@ -36,11 +36,16 @@ public class RoleController {
 			this.roleDao.save(role);
 		}
 		return "redirect:/roleDetail";
-
+	}
+	
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	public String detailPage(@ModelAttribute("role") Role b, Model model) {
+		model.addAttribute("role", b);
+		return "roleDetail";
 	}
 
-	@RequestMapping("/remove/{id}")
-	public String remove(@PathVariable("id") Long id) {
+	@RequestMapping("/remove")
+	public String remove(Long id) {
 
 		this.roleDao.delete(id);
 		return "redirect:/roleList";

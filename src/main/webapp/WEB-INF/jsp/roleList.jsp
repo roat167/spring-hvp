@@ -4,22 +4,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Projects</title>
+<title>Role Page</title>
 </head>
 <body>
+	<a href="/home"> HOME</a>
+	<a href="role/add"> Add a Role</a>
 	<h2>List of roles</h2>
-	<table>
-	<%-- 
+	<table>	
+	<c:if test="${not empty roles}">
+	<tr>
+		<td> Status </td>
+		<td> Name </td>		
+		<td> Description </td>				
+	</tr>
+	</c:if>
 	<c:forEach var="role" items="${roles}">
 	<tr>
-		<td>${role.name}</td>
 		<td>${role.status}</td>
-		<td><a href="role/${role.id}">edit</a></td>
+		<td>${role.name}</td>		
+		<td>${role.description}</td>
+		<td><a href="role/${role.id}">Edit</a></td>
 	</tr>
-	</c:forEach>
-	--%>
-	</table>
-	
-	<a href="role/add"> Add a Project</a>
+	</c:forEach>	
+	</table>	
 </body>
 </html>
