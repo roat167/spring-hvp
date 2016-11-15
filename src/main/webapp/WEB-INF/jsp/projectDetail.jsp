@@ -37,7 +37,7 @@
 		<tr>
 			<td>Description:</td>
 			<td><input type="text" name="description" value="${project.description}" /> </td>
-		</tr>
+		</tr>		
 		<tr>
 			<td>Start Date:</td>
 			<td><input type="text" class="datepicker" name="startDate" value="${project.startDateDisplay}" /> </td>
