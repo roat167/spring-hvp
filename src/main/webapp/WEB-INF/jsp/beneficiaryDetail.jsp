@@ -20,6 +20,7 @@
 		</tr>		
 	</table>
 	<input type="submit" value="Save"/>
+	<input type="hidden" name="id" value ="${beneficiary.id}" />
 	</form>
 	<c:if test="${not empty beneficiary.id}">
 	<form action="/beneficiaries/remove?id=${beneficiary.id}" method="post">

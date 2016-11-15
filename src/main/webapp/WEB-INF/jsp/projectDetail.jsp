@@ -13,6 +13,9 @@
 	<span><a href="/projects"> Cancel </a></span>	
 	<form action="/projects/add" method="post" modelAttribute="project">
 	<h4>Project Details</h4>
+	<c:if test="${not empty msg}">
+		<p style = "color: blue">${msg}</p>
+	</c:if>
 	<table>
 		<tr>
 			<td>Name:</td>
@@ -111,12 +114,12 @@
 			</tr> --%>
 		</table>
 	<input type="submit" value="Save"/>
+	<input type="hidden" name="id" value="${project.id}" />	
 	</form>
 	<c:if test="${not empty project.id}">
 	<form action="/projects/remove?id=${project.id}" method="post">
 		<button type="submit">Delete</button>
 	</form>
-	</c:if>
-	<input type="hidden" name="id" value="${project.id}" />	
+	</c:if>	
 </body>
 </html>
