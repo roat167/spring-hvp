@@ -6,7 +6,7 @@
 	<groupId>edu.mum.cs.cs544</groupId>
 	<artifactId>spring.hvp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>springhvp</name>
 	<description>Spring Boot for spring volunteering project</description>

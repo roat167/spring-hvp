@@ -5,6 +5,7 @@
 <title>Spring hvp error page</title>
 </head>
 <body>
+	<a href="/home"> HOME</a>
 	<p>There is problem try accessing this page. Please try again later.<p />
 	
 	<p>Please use your back button and refresh the previous page before trying again.</p>

@@ -9,15 +9,10 @@ public class CustomDateFormatter {
 	private static final String DATE_PATTERN = "MM/dd/yyyy";
 
 	public static String displayDateFormat(Date date) {
-		if (date != null) {
-			DateFormat dFormat = new SimpleDateFormat(DATE_PATTERN);
+		DateFormat dFormat = new SimpleDateFormat(DATE_PATTERN);
+		if (date != null) {			
 			return dFormat.format(date);
 		}
-		return "";
-	}
-	
-	public static void main(String[] args) {
-		System.out.println(displayDateFormat(new Date()));
-		
+		return dFormat.format(new Date());
 	}
 }
